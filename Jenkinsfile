@@ -35,18 +35,9 @@ pipeline {
             }
             steps {
                 // sh 'sudo apt install maven'
-                echo "Hello ${params.PERSON}"
-
-                echo "Biography: ${params.BIOGRAPHY}"
-
-                echo "Toggle: ${params.TOGGLE}"
-
-                echo "Choice: ${params.CHOICE}"
-
-                echo "Password: ${params.PASSWORD}"
-                echo "Myname is : ${params.MYNAME}"
-                // sh 'whoami'
-                sh 'mvn --version'
+                withSonarQubeEnv(installationName: 'my-sonar') {
+                    sh 'mvn clean sonar:sonar'
+                }
 
             }
         }
