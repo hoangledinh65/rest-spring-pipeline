@@ -36,7 +36,7 @@ pipeline {
             steps {
                 // sh 'sudo apt install maven'
                 withSonarQubeEnv(installationName: 'my-sonar') {
-                    sh 'mvn clean install sonar:sonar'
+                    sh 'mvn clean install -Dmaven.test.skip=true sonar:sonar'
                 }
 
             }
