@@ -30,11 +30,6 @@ pipeline {
 
         stage('Initialize') {
 
-            agent {
-                docker {
-                    image 'maven:2.3.4'
-                }
-            }
             environment {
                 NAME = 'HOANG'
             }
